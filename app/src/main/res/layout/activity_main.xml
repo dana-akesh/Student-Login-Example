@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/student_profile"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
+        android:id="@+id/textView"/>
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:inputType="textPersonName"
+        android:layout_width="351dp"
+        android:layout_height="57dp"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:hint="@string/student_name_hint" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:inputType="textEmailAddress"
+        android:layout_width="351dp"
+        android:layout_height="57dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="@string/student_email_TF">
+    </EditText>
+
+    <RadioGroup
+        android:id="@+id/rgGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <RadioButton
+            android:id="@+id/radio_button_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male_RB">
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/radio_button_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female_RB">
+        </RadioButton>
+    </RadioGroup>
+
+    <Switch
+        android:id="@+id/switch_final_year"
+        android:layout_width="145dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:text="@string/final_year_SWITCH" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_margin="10dp"
+        android:layout_gravity="center">
+    </Button>
+</LinearLayout>

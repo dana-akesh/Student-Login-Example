@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LoginExample</string>
+    <string name="student_profile">Student Profile</string>
+    <string name="save">Save</string>
+    <string name="student_name_hint">Student Name</string>
+    <string name="student_email_TF">Student Email</string>
+    <string name="female_RB">Female</string>
+    <string name="male_RB">Male</string>
+    <string name="final_year_SWITCH">Final Year</string>
+</resources>
