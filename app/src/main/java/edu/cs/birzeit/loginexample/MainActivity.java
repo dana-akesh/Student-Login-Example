@@ -1,6 +1,9 @@
 package edu.cs.birzeit.loginexample;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -9,6 +12,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
     private EditText edtName;
@@ -24,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         initComponents();
         setListeners();
-
-        //todo: use gson and store student object in shared preferences
     }
 
     private void initComponents() {
@@ -37,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-
         btnSave.setOnClickListener(v -> {
             String name = edtName.getText().toString();
             String email = edtEmail.getText().toString();
@@ -64,9 +66,22 @@ public class MainActivity extends AppCompatActivity {
 
             Student student = new Student(name, email, radioButton.getText().toString(), isFinalYear);
             Toast.makeText(MainActivity.this, "Student Added", Toast.LENGTH_LONG).show();
-
-
+            saveToSharedPreferences(student);
         });
+    }
+
+    private void saveToSharedPreferences(Student student){
+        // creating a GSON object
+        Gson gson = new Gson();
+        String serializedObject = gson.toJson(student);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("student", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("objectKey", serializedObject);
+        editor.apply();
+        editor.commit();
+
+        Log.d("SAVED", serializedObject);
     }
 
 
